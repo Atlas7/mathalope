@@ -10,13 +10,13 @@ Say we have a weather probability model that looks like this:
 
 From the diagram we can quickly work out the following conditional probabilities:
 
-$$P(R_{(t+1)}|R_{(t)})=0.6$$
+$$P(R_{(t)}|R_{(t-1)})=0.6$$
 
-$$P(S_{(t+1)}|R_{(t)})=0.4$$
+$$P(S_{(t)}|R_{(t-1)})=0.4$$
 
-$$P(R_{(t+1)}|S_{(t)})=0.2$$
+$$P(R_{(t)}|S_{(t-1)})=0.2$$
 
-$$P(S_{(t+1)}|S_{(t)})=0.8$$
+$$P(S_{(t)}|S_{(t-1)})=0.8$$
 
 Assume at time $t=0$, it is Rainy. i.e.
 
@@ -55,7 +55,7 @@ $$
 The above manual calculation implies the following general Markov Chain solution (for this particular problem):
 
 $$
-P(R_{t+1}) = P(R_{t+1}|R_{t})P(R_{t})+P(R_{t+1}|S_{t})P(S_{t})
+P(R_{t}) = P(R_{t}|R_{t-1})P(R_{t-1})+P(R_{t}|S_{t-1})P(S_{t-1})
 $$
 
 # Conclusion
